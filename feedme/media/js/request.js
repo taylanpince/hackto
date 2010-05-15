@@ -35,6 +35,7 @@ core.Request = $.Class.extend({
             if (this.valid) {
                 $(this.container).html(this.loader_template.replace("{{ MEDIA_URL }}", this.media_url));
                 $("#PanelBackground, #PanelContainer").fadeIn();
+                $("#CloseButton").click(this.cancel.bind());
                 $.post($(this.selector).attr("action"), $(this.selector).serialize(), this.submit_done.bind(this));
             } else if (!$(this.selector).hasClass("has-errors")) {
                 $(this.selector).addClass("has-errors").prepend(this.error_template);
@@ -50,6 +51,13 @@ core.Request = $.Class.extend({
         if ($(elem).val() == "") {
             this.valid = false;
         }
+    },
+    
+    cancel : function() {
+        this.processing = false;
+        
+        $("#PanelBackground, #PanelContainer").fadeOut();
+        $("#CloseButton").unbind();
     },
     
     init : function(selector, container, media_url) {
