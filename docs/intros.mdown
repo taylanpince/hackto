@@ -1,0 +1,31 @@
+API Presentations
+=================
+
+Freshbooks
+----------
+
+* Need auth token
+* http://developers.freshbooks.com/
+
+
+Canpages
+--------
+
+* http://code.canpages.ca
+
+
+idee
+----
+
+* Visual similarity search and color search
+* http://204.15.199.173:8000/
+* Visual similarity doesn't mean semantic search
+* Read only API is prepopulated with 4 million flickr photos
+* Write enabled API is empty, it will be populated with photos uploaded today
+
+
+PostRank
+--------
+
+* Feed aggregator and collection of "engagement activities"
+* http://gist.github.com/402207
