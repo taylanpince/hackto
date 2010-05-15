@@ -46,6 +46,7 @@ INSTALLED_APPS = (
 )
 
 POSTRANK_APP_KEY = "feedme_hackto"
+GOOGLE_READER_CLIENT = "feedme"
 
 try:
     from settings_local import *
