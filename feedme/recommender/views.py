@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -46,19 +47,30 @@ def recommend_with_google(request):
     form = GoogleLoginForm(request.POST)
 
     if form.is_valid():
-        reader = GoogleReader()
-        reader.identify(form.cleaned_data.get("username"), form.cleaned_data.get("password"))
+        cache_key = "feed-hashes-%s" % form.cleaned_data.get("username")
+        feed_hashes = cache.get(cache_key)
+        
+        if not feed_hashes:
+            reader = GoogleReader()
+            reader.identify(form.cleaned_data.get("username"), form.cleaned_data.get("password"))
 
-        if reader.login():
-            feeds = reader.get_subscription_list()
-            client = PostRank()
-            feed_hashes = []
+            if reader.login():
+                feeds = reader.get_subscription_list()
+                client = PostRank()
+                feed_hashes = []
 
-            for feed in feeds.get("subscriptions"):
-                feed_hashes.append(client.get_feed_hash(feed.get("id")))
-            print feed_hashes
+                for feed in feeds.get("subscriptions"):
+                    if feed.get("id"):
+                        feed_hash = client.get_feed_hash(feed.get("id")[5:])
+
+                        if feed_hash:
+                            feed_hashes.append(feed_hash)
+
+                cache.set(cache_key, feed_hashes, 24 * 60 * 60)
+
+        if feed_hashes:
             recommendations = client.get_recommendations(feed_hashes, limit=5)
-            print recommendations
+
             if recommendations:
                 return render_to_response("recommender/results.html", {
                     "results": recommendations,

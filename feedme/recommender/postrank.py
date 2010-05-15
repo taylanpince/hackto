@@ -48,7 +48,7 @@ class PostRank(object):
 
         for p in params:
             body += "feed[]=%s&" % p
-        print body
+
         return body
 
     def get_feed_hash(self, url):
