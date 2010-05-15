@@ -1,9 +1,7 @@
 import os
 import sys
-import site
 
-site.addsitedir('/home/taylan/sites/feedme/lib/python2.5/site-packages')
-
+sys.path.append("/home/taylan/sites/feedme/lib/python2.5/site-packages")
 sys.path.append("/home/taylan/sites/feedme/src/hackto")
 sys.path.append("/home/taylan/sites/feedme/src/hackto/feedme")
 
