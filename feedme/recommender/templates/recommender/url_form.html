@@ -1,4 +1,8 @@
+<p class="low-margin padded">Search by any web site address with an RSS feed:</p>
+
 <form method="post" action="{% url recommender_url %}">
-	{{ recommend_form.as_p }}
-	<p><input type="submit" value="Recommend"/ ></p>
+	<p class="half">
+		{{ recommend_form.url }}
+		<input type="image" class="submit" src="{{ MEDIA_URL }}images/btn-recommend.png" value="Recommend"/ >
+	</p>
 </form>

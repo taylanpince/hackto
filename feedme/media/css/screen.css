@@ -1,0 +1,156 @@
+/*
+ *	Title: Screen CSS Styles for feedme
+ *	Date: May 15, 2010
+ *  Author: Taylan Pince (taylanpince at gmail dot com)
+ */
+
+
+/* @group Global */
+
+body {
+    background-color: #ddd;
+    font: 18px Helvetica, Arial, sans-serif;
+    color: #343434;
+    text-align: center;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+    
+}
+
+a:hover {
+    
+}
+
+p {
+    line-height: 24px;
+    margin: 0px 0px 25px 0px;
+}
+
+p.small {
+    font-size: 12px;
+}
+
+p.center {
+    text-align: center;
+}
+
+p.padded {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+p.low-margin {
+    margin-bottom: 10px;
+}
+
+span.red {
+    color: #d26565;
+}
+
+h1 {
+    
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    margin: 0px 0px 40px 0px;
+}
+
+h3 {
+    
+}
+
+ul {
+    margin: 0px 0px 15px 0px;
+}
+
+/* @end */
+
+
+/* @group Layout */
+
+#Logo {
+    width: 192px;
+    margin: 30px auto 50px auto;
+    display: block;
+}
+
+#Container {
+    width: 551px;
+    margin: 0px auto 0px auto;
+    text-align: left;
+}
+
+#Footer {
+    width: 551px;
+    margin: 0px auto 0px auto;
+    font-size: 12px;
+    text-align: right;
+}
+
+/* @end */
+
+
+/* @group Forms */
+
+form {
+    margin: 0px 0px 40px 0px;
+}
+
+p.half,
+p.full-top,
+p.half-bottom {
+    height: 57px;
+    width: 551px;
+}
+
+p.half {
+    background: transparent url("../images/bg-field-half.png") top left no-repeat;
+}
+
+p.half input,
+p.half-bottom input {
+    float: left;
+    width: 419px;
+}
+
+p.full-top {
+    margin: 0px;
+    background: transparent url("../images/bg-field-full.png") top left no-repeat;
+}
+
+p.full-top input {
+    width: 539px;
+}
+
+p.half-bottom {
+    background: transparent url("../images/bg-field-half-bottom.png") top left no-repeat;
+}
+
+input {
+    font-size: 18px;
+    border: none;
+    background-color: #edece9;
+    padding: 0px;
+    height: 25px;
+    margin: 16px 6px 16px 6px;
+}
+
+input.empty {
+    color: #565656;
+}
+
+input.submit {
+    height: 57px !important;
+    width: 120px !important;
+    margin: 0px !important;
+}
+
+/* @end */
+

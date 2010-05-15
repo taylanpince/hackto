@@ -1,4 +1,10 @@
+<p class="low-margin padded">Let us analyze your Google Reader feeds:</p>
+
 <form method="post" action="{% url recommender_google %}">
-	{{ google_form.as_p }}
-	<p><input type="submit" value="Recommend"/ ></p>
+	<p class="full-top">{{ google_form.username }}</p>
+	<p class="half-bottom low-margin">
+		{{ google_form.password }}
+		<input type="image" class="submit" src="{{ MEDIA_URL }}images/btn-recommend-bottom.png" value="Recommend"/ >
+	</p>
+	<p class="small padded">Your Google account information will only be used to retrieve a list of your feeds.</p>
 </form>
