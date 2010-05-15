@@ -42,8 +42,10 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    
+    'recommender',
 )
+
+POSTRANK_APP_KEY = "feedme_hackto"
 
 try:
     from settings_local import *
