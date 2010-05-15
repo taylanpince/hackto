@@ -18,7 +18,7 @@ a,
 a:link,
 a:visited,
 a:active {
-    
+    color: #d26565;
 }
 
 a:hover {
@@ -47,6 +47,7 @@ p.low-margin {
     margin-bottom: 10px;
 }
 
+p.errors,
 span.red {
     color: #d26565;
 }
@@ -63,11 +64,18 @@ h2 {
 }
 
 h3 {
-    
+    font-weight: bold;
+    font-size: 28px;
+    margin: 0px 0px 30px 0px;
 }
 
 ul {
     margin: 0px 0px 15px 0px;
+}
+
+ul li {
+    list-style-type: circle;
+    margin: 0px 0px 10px 20px;
 }
 
 /* @end */
@@ -154,3 +162,44 @@ input.submit {
 
 /* @end */
 
+
+/* @group Panel */
+
+#PanelBackground,
+#PanelContainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 2;
+}
+
+#PanelBackground {
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+#Panel {
+    width: 300px;
+    height: 246px;
+    padding: 70px 16px 16px 16px;
+    margin: 180px auto 0px auto;
+    opacity: 1.0;
+    position: relative;
+    background: transparent url("../images/bg-panel.png") top left no-repeat;
+}
+
+#PanelContent {
+    text-align: left;
+}
+
+#CloseButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* @end */

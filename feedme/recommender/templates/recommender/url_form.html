@@ -1,8 +1,16 @@
 <p class="low-margin padded">Search by any web site address with an RSS feed:</p>
 
-<form method="post" action="{% url recommender_url %}">
+<form method="post" action="{% url recommender_url %}" id="URLForm">
 	<p class="half">
 		{{ recommend_form.url }}
 		<input type="image" class="submit" src="{{ MEDIA_URL }}images/btn-recommend.png" value="Recommend"/ >
 	</p>
 </form>
+
+<script type="text/javascript">
+//<![CDATA[
+<!--
+	new core.Request("#URLForm", "#PanelContent", "{{ MEDIA_URL }}");
+//-->
+//]]>
+</script>

@@ -1,6 +1,6 @@
 <p class="low-margin padded">Let us analyze your Google Reader feeds:</p>
 
-<form method="post" action="{% url recommender_google %}">
+<form method="post" action="{% url recommender_google %}" id="GoogleForm">
 	<p class="full-top">{{ google_form.username }}</p>
 	<p class="half-bottom low-margin">
 		{{ google_form.password }}
@@ -8,3 +8,11 @@
 	</p>
 	<p class="small padded">Your Google account information will only be used to retrieve a list of your feeds.</p>
 </form>
+
+<script type="text/javascript">
+//<![CDATA[
+<!--
+	new core.Request("#GoogleForm", "#PanelContent", "{{ MEDIA_URL }}");
+//-->
+//]]>
+</script>

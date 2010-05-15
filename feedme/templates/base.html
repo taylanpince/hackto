@@ -14,6 +14,7 @@
 	</style>
 	
 	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/request.js"></script>
 	
 </head>
 
@@ -30,10 +31,26 @@
 		<a href="http://postrank.com"><img src="{{ MEDIA_URL }}images/logo-postrank.png" alt="PostRank" /></a>
 	</p>
 	
+	<div id="PanelBackground">&nbsp;</div>
+	<div id="PanelContainer">
+		<div id="Panel">
+			<a href="javascript:void(0);" id="CloseButton"><img src="{{ MEDIA_URL }}images/btn-close.png" alt="Close" /></a>
+			
+			<div id="PanelContent">
+				<p class="center">Hold on, this might take a while</p>
+				<p class="center"><img src="{{ MEDIA_URL }}images/ajax-loader.gif" alt="Loader" /></p>
+			</div>
+		</div>
+	</div>
+	
 	<script type="text/javascript" charset="utf-8">
 	//<![CDATA[
 		$("form input").not(".submit").addClass("empty").focus(function() {
 			$(this).val("").removeClass("empty");
+		});
+		
+		$("#CloseButton").click(function() {
+	        $("#PanelBackground, #PanelContainer").fadeOut();
 		});
 	//]]>
 	</script>

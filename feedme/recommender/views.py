@@ -28,10 +28,14 @@ def recommend_with_url(request):
         client = PostRank()
         feed_hash = client.get_feed_hash(form.cleaned_data.get("url"))
         recommendations = client.get_recommendations([feed_hash], limit=5)
-        print feed_hash
-        print recommendations
+
         if recommendations:
-            return render_to_response("recommender/results.html", {
+            if request.is_ajax():
+                template = "results.html"
+            else:
+                template = "results_page.html"
+
+            return render_to_response("recommender/%s" % template, {
                 "results": recommendations,
             }, context_instance=RequestContext(request))
 
@@ -72,7 +76,12 @@ def recommend_with_google(request):
             recommendations = client.get_recommendations(feed_hashes, limit=5)
 
             if recommendations:
-                return render_to_response("recommender/results.html", {
+                if request.is_ajax():
+                    template = "results.html"
+                else:
+                    template = "results_page.html"
+
+                return render_to_response("recommender/%s" % template, {
                     "results": recommendations,
                 }, context_instance=RequestContext(request))
 
