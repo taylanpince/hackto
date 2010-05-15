@@ -71,6 +71,15 @@ def recommend_with_google(request):
                             feed_hashes.append(feed_hash)
 
                 cache.set(cache_key, feed_hashes, 24 * 60 * 60)
+            else:
+                if request.is_ajax():
+                    template = "google_error.html"
+                else:
+                    template = "google_error_page.html"
+
+                return render_to_response("recommender/%s" % template, {
+
+                }, context_instance=RequestContext(request))
 
         if feed_hashes:
             recommendations = client.get_recommendations(feed_hashes, limit=5)
