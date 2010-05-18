@@ -47,6 +47,13 @@ p.low-margin {
     margin-bottom: 10px;
 }
 
+p.right {
+    float: right;
+    display: inline;
+    text-align: right;
+    padding-top: 0px !important;
+}
+
 p.errors,
 span.red {
     color: #d26565;
@@ -99,7 +106,11 @@ ul li {
     width: 551px;
     margin: 0px auto 0px auto;
     font-size: 12px;
-    text-align: right;
+    text-align: left;
+}
+
+#Footer p {
+    padding-top: 6px;
 }
 
 /* @end */
